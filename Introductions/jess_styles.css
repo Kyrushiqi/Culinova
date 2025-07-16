@@ -1,0 +1,22 @@
+body {
+    background-color: lightblue;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    object-fit: cover;
+    object-position: center center;
+    width: 320px;
+    height: 320px;
+    display: block;
+    border-radius: 50%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}

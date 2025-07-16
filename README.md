@@ -5,8 +5,9 @@ A website that allows user input of a list of ingredients. The website will gene
 
 ## Team Chimpanzee:
 - [Karina Lam](https://github.com/Kyrushiqi) (Frontend developer)
-- [Jessica Lei](https://github.com/jessicalei11)
-- [Edwin Ng](https://github.com/edwinng5)
+- [Jessica Lei](https://github.com/jessicalei11) 
+- [Edwin Ng](https://github.com/edwinng5) (Backend developer)
 
 ## Team Introductions:
 [Karina Lam](Introductions/Karina.html)
+[Edwin Ng](Introductions/Edwin.html)

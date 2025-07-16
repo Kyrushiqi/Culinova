@@ -1,4 +1,12 @@
-# Culinova
+# Culinova 
+A website that allows user input of a list of ingredients. The website will generate a recipe for you based on the existing database. Users can sort through the various recipes, create their own recipes, upload them, and receive ratings from other users. 
 
-Team Chimpanzee:
-- Karina Lam, Jessica Lei, Edwin Ng
+## Figma Wireframe
+
+## Team Chimpanzee:
+- [Karina Lam](https://github.com/Kyrushiqi) (Frontend developer)
+- [Jessica Lei](https://github.com/jessicalei11)
+- [Edwin Ng](https://github.com/edwinng5)
+
+## Team Introductions:
+[Karina Lam](Introductions/Karina.html)

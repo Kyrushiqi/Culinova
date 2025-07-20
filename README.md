@@ -4,7 +4,7 @@ A website that allows user input of a list of ingredients. The website will gene
 ## Figma Wireframe
 
 ## Team Chimpanzee:
-- [Karina Lam](https://github.com/Kyrushiqi) (Frontend developer)
+- [Karina Lam](https://github.com/Kyrushiqi) (Frontend developer/Designer)
 - [Jessica Lei](https://github.com/jessicalei11) (Project Manager/Backend developer)
 - [Edwin Ng](https://github.com/edwinng5) (Frontend developer/Designer)
 

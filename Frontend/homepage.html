@@ -5,10 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Culinova</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="homepage.css">
   </head>
 
   <body>
-    <h1>Hello, world!</h1>
+    <div class="nav-bar-container">
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand">
+              <img src="../Assets/logo.png" id="logo">
+          </a>
+          <form class="d-flex" role="search">
+            <input class="form-control search-bar" type="search" placeholder="Search for recipes..."/>
+            <button class="btn btn-outline-success" type="submit">
+              <img src="../Assets/search.png" id="search-icon">
+            </button>
+
+            <button class="btn btn-secondary" id="profile-pic-btn">
+              <img src="../Assets/profile-pic.png" id="profile-pic">
+            </button>
+          </form>
+            
+        </div>
+      </nav>
+    </div>
+    
+    <div class="main-content-format">
+      <div class="filter-container">
+        <div class="filter-bg">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkBreakfast">
+            <label class="form-check-label" for="checkBreakfast">Breakfast</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkLunch">
+            <label class="form-check-label" for="checkLunch">Lunch</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkDinner">
+            <label class="form-check-label" for="checkDinner">Dinner</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkAppetizers">
+            <label class="form-check-label" for="checkAppetizers">Appetizers</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkSides">
+            <label class="form-check-label" for="checkSides">Sides</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkDessert">
+            <label class="form-check-label" for="checkDessert">Dessert</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkVegan">
+            <label class="form-check-label" for="checkVegan">Vegan</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkDrinks">
+            <label class="form-check-label" for="checkDrinks">Drinks</label>
+          </div>
+          
+          <label>Filter by Time:</label>
+          <div class="dropdown-form">
+            <select class="form-select form-select-sm mt-1" id="ratingInput">
+              <option value="" selected>Any time</option>
+              <option>Total Time</option>
+              <option>Cook Time</option>
+              <option>Prep Time</option>
+            </select>
+          </div>
+          
+          <label>Filter by Rating:</label>
+          <div class="dropdown-form">
+            <select class="form-select form-select-sm mt-1" id="ratingInput">
+              <option value="" selected>Any rating</option>
+              <option>⭐☆☆☆☆</option>
+              <option>⭐⭐☆☆☆</option>
+              <option>⭐⭐⭐☆☆</option>
+              <option>⭐⭐⭐⭐☆</option>
+              <option>⭐⭐⭐⭐⭐</option>
+            </select>
+          </div>
+          
+          <button class="btn btn-success" type="submit">Apply Filters</button>
+          <button class="btn btn-danger" type="submit">Clear Filters</button>
+
+        </div>
+      </div>
+
+      <div class="main-content-container">
+        <div class="main-bg">
+          <div id="main-header-text">
+            <h1>Culinova</h1>
+            <h5>Don’t know what to make with your ingredients? Let us help you! :D</h5>
+          </div>
+          <div id="with-without-container">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
   </body>
   

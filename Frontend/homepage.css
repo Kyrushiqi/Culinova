@@ -1,0 +1,56 @@
+/* Navigation Bar */
+#logo{
+    width: 80px;
+    height: auto;
+    background-color: pink;
+}
+
+.search-bar{
+    width: 450px;
+    margin-right: 10px;
+}
+
+#search-icon{
+    width: 25px;
+}
+
+#profile-pic{
+    width: 25px;
+    height: auto;
+    background-color: pink;
+}
+
+#profile-pic-btn{
+    margin-left: 10px;
+}
+
+/* Content Formatting underneath navbar */
+/* .main-content-format{
+    display: flex;
+    flex-direction: column;
+} */
+
+/* Filter Section */
+#filter-container{
+    background-color: rgb(232, 125, 143);
+}
+
+.filter-bg{
+    position: fixed;
+    bottom: 20%;
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    background-color: lightblue;
+    max-width: 20%;
+    
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Main Content/Center piece */
+#main-header-text{
+    text-align: center;
+    margin-top: 20px;
+}

@@ -1,12 +1,29 @@
 body {
-    background-color: rgb(255, 232, 198);
+    background-color: #EF7979;
 }
 
+h1, h2{
+    background-color: #FF9E6C;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px;
+}
+
+/* Colors: 
+#EF7979 - Background color
+#A8396D - Navbar color
+#F9E5A8 - Yellow
+#FF9E6C - Orange
+*/
+
 /* Navigation Bar */
+.nav-bar-container .navbar{
+    background-color: #A8396D;
+}
+
 #logo{
     width: 80px;
     height: auto;
-    background-color: pink;
 }
 
 .search-bar{
@@ -50,7 +67,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    background-color: lightblue;
+    background-color: #F9E5A8;
     padding: 20px;
     border-radius: 10px;
 }
@@ -82,7 +99,7 @@ body {
     padding: 20px;
     border-radius: 5px;
     margin-top: 20px;
-    background-color: rgb(186, 126, 126);
+    background-color: #F9E5A8;
 }
 
 #main-header-text{
@@ -95,18 +112,36 @@ body {
     flex-direction: row;
 }
 
-.btn-outline-primary{
-    background-color: pink;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+/* Default (not selected) */
+.btn-outline-primary {
+  background-color: #FF9E6C;
+  color: #000000;
+  border-color: #FF9E6C;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
+
+/* Hover */
+.btn-group:hover {
+  background-color: #ff7f3e;
+  color: #ffffff;
+  border-color: rgb(255, 0, 208);
+}
+
+/* Selected / Active */
+.btn-check:checked + .btn-outline-primary {
+  background-color: #a95932;
+  color: rgb(0, 0, 0);
+  border-color: #a95932;
+}
+
 
 #textarea-ingredients{
     border-top-left-radius: 0;
 }
 
 #ingredients-showcase-box{
-    background-color: rgb(199, 229, 255);
+    background-color: rgb(255, 255, 255);
     border-radius: 5px;
     margin-top: 20px;
     padding: 10px;
@@ -123,15 +158,37 @@ body {
 
     text-align: center;
 
-    background-color: pink;
+    /* background-color: pink; */
 }
 
+/* Your cookbook button */
 .btn-primary{
     padding: 20px;
+    background-color: #F9E5A8;
+    color: black;
+    border-color: #FF9E6C;
+    border-width: 8px;
+}
+
+.btn-primary:hover{
+    background-color: #f1d275;
+    color: black;
+    border-color: #ff8446;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #e8682a !important; /* On click */
+  border-color: #e8682a !important;
+  color: #ffffff !important;
 }
 
 #favorites-container{
+    display: flex;
+    flex-direction: column;
+    
     margin-top: 15px;
     border-radius: 5px;
-    background-color: aquamarine;
+    background-color: #F9E5A8;
 }

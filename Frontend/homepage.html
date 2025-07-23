@@ -6,9 +6,10 @@
     <title>Culinova</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="homepage.css">
-  </head>
+
 
   <body>
+    <script src="homepage.js"></script>
     <div class="nav-bar-container">
       <nav class="navbar custom-color">
         <div class="container-fluid">
@@ -25,11 +26,11 @@
               <img src="../Assets/profile-pic.png" id="profile-pic">
             </button>
           </form>
-            
+
         </div>
       </nav>
     </div>
-    
+
     <div class="format">
       <div class="filter-container">
         <div class="filter-bg">
@@ -70,14 +71,14 @@
           <div id="filter-by">
             <label>Filter by Time:</label>
             <div class="dropdown-form">
-              <select class="form-select form-select-sm mt-1" id="ratingInput">
+              <select class="form-select form-select-sm mt-1" id="timeInput">
                 <option value="" selected>Any time</option>
                 <option>Total Time</option>
                 <option>Cook Time</option>
                 <option>Prep Time</option>
               </select>
             </div>
-            
+
             <label>Filter by Rating:</label>
             <div class="dropdown-form">
               <select class="form-select form-select-sm mt-1" id="ratingInput">
@@ -90,7 +91,7 @@
               </select>
             </div>
           </div>
-          
+
           <div id="filter-btns">
             <button class="btn btn-success" type="submit">Apply Filters</button>
             <button class="btn btn-danger" type="submit">Clear Filters</button>
@@ -116,13 +117,136 @@
             </div>
 
             <div id="list-ingredients-box">
-              <textarea class="form-control" aria-label="With" placeholder="List your ingredients here..." id="textarea-ingredients"></textarea>
-              
+              <textarea class="form-control" aria-label="With" placeholder="List your ingredients here (comma-separated)..." id="textarea-ingredients"></textarea>
+
               <div id="ingredients-showcase-box">
-                <h5>With</h5>
-                <p>Recipe with the following ingredients...</p>
-                <h5>Without</h5>
-                <p>Recipe without the following ingredients...</p>
+                <table>
+                  <thead>
+                      <tr>
+                          <th>Recipe</th>
+                          <th>Ingredients</th>
+                      </tr>
+                  </thead>
+                  <tbody id="recipeTableBody">
+                      <tr>
+                          <td><b>1. Classic Scrambled Eggs</b></td>
+                          <td>
+                              <ul>
+                                  <li>2-3 large <b>eggs</b></li>
+                                  <li>1 tablespoon <b>milk</b> or <b>cream</b> (optional)</li>
+                                  <li>1/2 tablespoon <b>butter</b> or <b>oil</b></li>
+                                  <li><b>Salt</b> and <b>pepper</b> to taste</li>
+                              </ul>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><b>2. Quick Tuna Melts</b></td>
+                          <td>
+                              <ul>
+                                  <li>1 can (5 oz) <b>tuna</b> in water, drained</li>
+                                  <li>2 tablespoons <b>mayonnaise</b></li>
+                                  <li>1 stalk <b>celery</b>, finely chopped (optional)</li>
+                                  <li>2 slices <b>bread</b></li>
+                                  <li>1-2 slices <b>cheese</b></li>
+                                  <li><b>Salt</b> and <b>pepper</b> to taste</li>
+                              </ul>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><b>3. Simple Pasta with Butter & Parmesan</b></td>
+                          <td>
+                              <ul>
+                                  <li>1/2 pound <b>pasta</b></li>
+                                  <li>2 tablespoons <b>butter</b></li>
+                                  <li>1/4 cup grated <b>Parmesan cheese</b></li>
+                                  <li><b>Salt</b> and <b>black pepper</b> to taste</li>
+                                  <li><b>Pasta water</b> (reserved)</li>
+                              </ul>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><b>4. Microwave Mug Mac and Cheese</b></td>
+                          <td>
+                              <ul>
+                                  <li>1/2 cup <b>elbow macaroni</b></li>
+                                  <li>1 cup <b>water</b></li>
+                                  <li>1/4 cup <b>milk</b></li>
+                                  <li>1/2 cup shredded <b>cheddar cheese</b></li>
+                                  <li><b>Salt</b> and <b>pepper</b> to taste</li>
+                              </ul>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><b>5. Easy Black Bean Tacos</b></td>
+                          <td>
+                              <ul>
+                                  <li>1 can (15 oz) <b>black beans</b>, rinsed and drained</li>
+                                  <li>1/4 cup <b>salsa</b></li>
+                                  <li>6 small <b>tortillas</b></li>
+                                  <li><b>Toppings</b>: shredded <b>lettuce</b>, diced <b>tomato</b>, shredded <b>cheese</b>, <b>sour cream</b>, or <b>avocado</b> (optional)</li>
+                              </ul>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><b>6. Peanut Butter & Banana Toast</b></td>
+                          <td>
+                              <ul>
+                                  <li>1 slice <b>bread</b>, toasted</li>
+                                  <li>2 tablespoons <b>peanut butter</b></li>
+                                  <li>1/2 <b>banana</b>, sliced</li>
+                                  <li>A drizzle of <b>honey</b> or sprinkle of <b>cinnamon</b> (optional)</li>
+                              </ul>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><b>7. Sheet Pan Sausage & Veggies</b></td>
+                          <td>
+                              <ul>
+                                  <li>1 pound <b>smoked sausage</b>, sliced</li>
+                                  <li>2 cups mixed <b>vegetables</b></li>
+                                  <li>1 tablespoon <b>olive oil</b></li>
+                                  <li>1/2 teaspoon <b>garlic powder</b></li>
+                                  <li><b>Salt</b> and <b>pepper</b> to taste</li>
+                              </ul>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><b>8. Caprese Skewers</b></td>
+                          <td>
+                              <ul>
+                                  <li>1 pint <b>cherry tomatoes</b></li>
+                                  <li>8 oz fresh <b>mozzarella balls</b></li>
+                                  <li>1/4 cup fresh <b>basil leaves</b></li>
+                                  <li>2 tablespoons <b>balsamic glaze</b></li>
+                                  <li><b>Salt</b> and <b>pepper</b> to taste</li>
+                                  <li><b>Skewers</b></li>
+                              </ul>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><b>9. Simple Quesadilla</b></td>
+                          <td>
+                              <ul>
+                                  <li>2 <b>tortillas</b></li>
+                                  <li>1/2 cup shredded <b>cheese</b></li>
+                                  <li><b>Fillings</b> (optional): cooked <b>chicken</b>, black beans, corn, diced <b>peppers</b></li>
+                              </ul>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><b>10. No-Bake Energy Bites</b></td>
+                          <td>
+                              <ul>
+                                  <li>1 cup <b>rolled oats</b></li>
+                                  <li>1/2 cup <b>peanut butter</b></li>
+                                  <li>1/3 cup <b>honey</b> or <b>maple syrup</b></li>
+                                  <li>1/2 cup <b>chocolate chips</b></li>
+                                  <li>1/4 cup <b>flax seeds</b> or <b>chia seeds</b> (optional)</li>
+                              </ul>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
               </div>
             </div>
           </div>
@@ -143,5 +267,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
   </body>
-  
+
 </html>

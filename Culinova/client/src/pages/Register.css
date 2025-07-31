@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
+
+* {
+    font-family: 'Happy Monkey', cursive;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #d97a74;
+    height: 100%;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-box,
+.login-box {
+    background-color: #fae38c;
+    border-radius: 30px;
+    padding: 100px 90px;
+    width: 900px;
+    max-width: 95%;
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+    text-align: left;
+    margin-bottom: 55px;
+    color: #3d0d1b;
+    font-size: 50px;
+}
+
+.label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 14px;
+    font-size: 26px;
+    color: #333;
+}
+
+.input {
+    width: 100%;
+    padding: 24px;
+    font-size: 24px;
+    border-radius: 16px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.button {
+    background-color: #f58d58;
+    color: black;
+    border: none;
+    padding: 20px 50px;
+    font-size: 24px;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-top: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #ec7034;
+}
+
+.signup-text {
+    margin-top: 45px;
+    font-size: 24px;
+    color: #444;
+}
+
+.signup-text a {
+    color: #333;
+    text-decoration: underline;
+}

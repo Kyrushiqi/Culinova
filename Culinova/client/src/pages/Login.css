@@ -8,7 +8,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    background-color: #d97a74;
+    background-color: #E68181;
     height: 100%;
 }
 
@@ -21,9 +21,9 @@ body, html {
 
 .register-box,
 .login-box {
-    background-color: #fae38c;
+    background-color: #F9E5A8;
     border-radius: 30px;
-    padding: 100px 90px;
+    padding: 20px 60px;
     width: 900px;
     max-width: 95%;
     text-align: center;
@@ -33,7 +33,7 @@ body, html {
 .title {
     text-align: left;
     margin-bottom: 55px;
-    color: #3d0d1b;
+    color: #333;
     font-size: 50px;
 }
 
@@ -57,7 +57,7 @@ body, html {
 }
 
 .button {
-    background-color: #f58d58;
+    background-color: #FF9E6C;
     color: black;
     border: none;
     padding: 20px 50px;
@@ -70,7 +70,7 @@ body, html {
 }
 
 .button:hover {
-    background-color: #ec7034;
+    background-color: #FF7D3B;
 }
 
 .signup-text {

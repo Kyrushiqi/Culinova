@@ -3,7 +3,7 @@ import './Register.css';
 
 export default function Register() {
   const [data, setData] = useState({
-    name: '',
+    username: '',
     password: '',
   });
 
@@ -37,7 +37,7 @@ export default function Register() {
           <button type="submit" className="button">Sign up</button>
         </form>
         <p className="signup-text">
-          Already have an Account? <a href="#">Login</a>
+          Already have an Account? <a href="/Login">Login</a>
         </p>
       </div>
     </div>

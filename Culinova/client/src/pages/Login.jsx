@@ -3,7 +3,7 @@ import './Login.css';
 
 export default function Login() {
   const [data, setData] = useState({
-    name: '',
+    username: '',
     password: '',
   });
 
@@ -37,7 +37,7 @@ export default function Login() {
           <button type="submit" className="button">Login</button>
         </form>
         <p className="signup-text">
-          Don’t have an account? <a href="#">Sign up</a>
+          Don't have an account? <a href="/Register">Sign up</a>
         </p>
       </div>
     </div>

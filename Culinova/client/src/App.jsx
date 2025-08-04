@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Added useEffect to run code on component mount
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'; 
 import Home from './pages/Home'; 

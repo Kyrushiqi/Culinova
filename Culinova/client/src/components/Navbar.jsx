@@ -16,6 +16,13 @@ export default function Navbar() {
               <img src={logo} id="logo" alt="Culinova Logo" />
             </a>
 
+            <nav>
+              <Link to="/">Home</Link>
+              <Link to="/register">Register</Link>
+              <Link to="/login">Login</Link>
+              <Link to="/cookbook">Cookbook</Link>
+            </nav>
+
             <form className="d-flex" role="search">
               <input
                 className="form-control search-bar"
@@ -34,12 +41,6 @@ export default function Navbar() {
           </div>
         </nav>
       </div>
-
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/login">Login</Link>
-      </nav>
     </>
   );
 }

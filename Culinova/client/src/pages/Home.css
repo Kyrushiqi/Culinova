@@ -1,13 +1,13 @@
-body {
+/* body {
     background-color: #EF7979;
-}
+} */
 
-h1, h2{
+/* h1, h2{
     background-color: #FF9E6C;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding: 10px;
-}
+} */
 
 /* Colors: 
 #EF7979 - Background color
@@ -17,12 +17,6 @@ h1, h2{
 */
 
 /* Content Formatting underneath navbar */
-/* .format{
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-} */
-
 .formatting-3-containers{
     /* background-color: red; */
     display: flex;
@@ -60,7 +54,7 @@ h1, h2{
 }
 
 /* Default (not selected) */
-.btn-outline-primary {
+.btn-group {
   background-color: #FF9E6C;
   color: #000000;
   border-color: #FF9E6C;

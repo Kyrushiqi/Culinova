@@ -3,13 +3,13 @@ import './Filter.css';
 
 export default function FilterForm() {
   const [filters, setFilters] = useState({
-    checkBreakfast: false,
-    checkLunch: false,
-    checkDinner: false,
-    checkAppetizers: false,
-    checkSides: false,
-    checkDessert: false,
     checkVegan: false,
+    checkVegetarian: false,
+    checkGlutenFree: false,
+    checkDairyFree: false,
+    checkNutFree: false,
+    checkHalal: false,
+    checkKosher: false,
     checkDrinks: false,
     timeInput: '',
     ratingInput: '',
@@ -38,13 +38,13 @@ export default function FilterForm() {
 
   const handleClearFilters = () => {
     setFilters({
-      checkBreakfast: false,
-      checkLunch: false,
-      checkDinner: false,
-      checkAppetizers: false,
-      checkSides: false,
-      checkDessert: false,
       checkVegan: false,
+      checkVegetarian: false,
+      checkGlutenFree: false,
+      checkDairyFree: false,
+      checkNutFree: false,
+      checkHalal: false,
+      checkKosher: false,
       checkDrinks: false,
       timeInput: '',
       ratingInput: '',
@@ -57,13 +57,13 @@ export default function FilterForm() {
         <div className="filter-bg">
           <h2>Filter</h2>
           {[
-            'Breakfast',
-            'Lunch',
-            'Dinner',
-            'Appetizers',
-            'Sides',
-            'Dessert',
             'Vegan',
+            'Vegetarian',
+            'Gluten-Free',
+            'Dairy-Free',
+            'Nut-Free',
+            'Halal',
+            'Kosher',
             'Drinks',
           ].map((label) => {
             const id = `check${label}`;

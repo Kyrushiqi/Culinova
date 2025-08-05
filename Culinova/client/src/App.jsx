@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'; // Added useEffect to run code on c
 import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home'; 
+import Cookbook from './pages/Cookbook';
 
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -37,6 +38,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/cookbook' element={<Cookbook />} />
       </Routes>
     </>
   );

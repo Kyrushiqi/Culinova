@@ -1,0 +1,28 @@
+/* Navigation Bar */
+.nav-bar-container .navbar{
+    background-color: #A8396D;
+}
+
+#logo{
+    width: 80px;
+    height: auto;
+}
+
+.search-bar{
+    width: 450px;
+    margin-right: 10px;
+}
+
+#search-icon{
+    width: 25px;
+}
+
+#profile-pic{
+    width: 25px;
+    height: auto;
+    background-color: pink;
+}
+
+#profile-pic-btn{
+    margin-left: 10px;
+}

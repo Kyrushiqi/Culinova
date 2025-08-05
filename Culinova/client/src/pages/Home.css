@@ -1,0 +1,141 @@
+body {
+    background-color: #EF7979;
+}
+
+h1, h2{
+    background-color: #FF9E6C;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px;
+}
+
+/* Colors: 
+#EF7979 - Background color
+#A8396D - Navbar color
+#F9E5A8 - Yellow
+#FF9E6C - Orange
+*/
+
+/* Content Formatting underneath navbar */
+/* .format{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+} */
+
+.formatting-3-containers{
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+/* Middle Center piece */
+.main-content-container {
+  flex: 1; /* Take up remaining space */
+  /* display: flex;
+  flex-direction: column; */
+  max-width: 1200px; 
+  margin: 0 auto;   /* this centers it horizontally */
+  padding: 20px;    /* optional spacing inside the container */
+}
+
+.main-bg{
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: #F9E5A8;
+}
+
+#main-header-text{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#with-without-btns{
+    display: flex;
+    flex-direction: row;
+}
+
+/* Default (not selected) */
+.btn-outline-primary {
+  background-color: #FF9E6C;
+  color: #000000;
+  border-color: #FF9E6C;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Hover */
+.btn-group:hover {
+  background-color: #ff7f3e;
+  color: #ffffff;
+  border-color: rgb(255, 0, 208);
+}
+
+/* Selected / Active */
+.btn-check:checked + .btn-outline-primary {
+  background-color: #a95932;
+  color: rgb(0, 0, 0);
+  border-color: #a95932;
+}
+
+
+#textarea-ingredients{
+    border-top-left-radius: 0;
+}
+
+#ingredients-showcase-box{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Right side of Homepage */
+.right-container{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    margin-top: 20px;
+    padding: 50px;
+
+    text-align: center;
+
+    background-color: pink;
+}
+
+/* Your cookbook button */
+.btn-primary{
+    padding: 20px;
+    background-color: #F9E5A8;
+    color: black;
+    border-color: #FF9E6C;
+    border-width: 8px;
+}
+
+.btn-primary:hover{
+    background-color: #f1d275;
+    color: black;
+    border-color: #ff8446;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #e8682a !important; /* On click */
+  border-color: #e8682a !important;
+  color: #ffffff !important;
+}
+
+#favorites-container{
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: 15px;
+    border-radius: 5px;
+    background-color: #F9E5A8;
+}

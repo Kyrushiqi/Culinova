@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'; // Added useEffect to run code on component mount
 import { Routes, Route } from 'react-router-dom';
 
-import Navbar from './components/Navbar'; 
 import Home from './pages/Home'; 
 
 import Register from './pages/Register';
@@ -34,7 +33,6 @@ function App() {
 
   return (
     <>
-      <Navbar/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<Register />} />

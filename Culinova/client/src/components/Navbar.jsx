@@ -12,10 +12,10 @@ export default function Navbar() {
       <div className="nav-bar-container">
         <nav className="navbar custom-color">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              <img src={logo} id="logo" alt="Culinova Logo" />
-            </a>
-
+            <Link to="/" className="navbar-brand">
+            <img src={logo} id="logo" alt="Culinova Logo" />
+              </Link>
+              
             <nav>
               <Link to="/">Home</Link>
               <Link to="/register">Register</Link>

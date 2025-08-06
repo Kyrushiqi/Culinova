@@ -10,30 +10,47 @@ const test = (req, res) => {
 const registerUser = async (req, res) => {
     try {
         const {username, email, password} = req.body;
+
         //Checks if username was entered
         if (!username) {
             return res.json({
-                error: 'username is required'
-            })
+                error: 'Username is required'
+            });
         };
-        //Check if password is good
-        if (!password || password < 6){
+
+        //Checks if email was entered
+        if (!email) {
+            return res.json({
+                error: 'Email is required'
+            });
+        }
+        //Makes sure the email contains an @ and . to ensure that it's a valid email
+        if (!email.includes('@') || !email.includes('.')) {
+            return res.json({
+                error: 'Please enter a valid email address'
+            });
+        }
+
+        //Checks if a password was entered and it's at least 6 characters
+        if (!password || password.length < 6) {
             return res.json({
                 error: 'Password is required and should be at least 6 characters long'
-            })
+            });
         };
-        const exist = await User.findOne({email});
+
+        //Checks to see if email already exists
+        const exist = await User.findOne({ email });
         if (exist) {
             return res.json({
-                error: 'Email is taken already'
-            })
+                error: 'Email is already taken'
+            });
         }
 
         const hashedPassword = await hashPassword(password)
 
         //Create user in the database
         const user = await User.create({
-            username, 
+            name: username, 
             email, 
             password: hashedPassword,
         })

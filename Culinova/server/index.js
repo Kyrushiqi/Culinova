@@ -1,24 +1,16 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
 const cors = require('cors');
-<<<<<<< Updated upstream
-const {mongoose} = require('mongoose')
-=======
 const { mongoose } = require('mongoose');
 const app = express();
->>>>>>> Stashed changes
+
 
 // Database connection
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log('Database connected'))
 .catch((err) => console.log('Database is not connected', err));
 
-<<<<<<< Updated upstream
-const app = express();
-=======
-// Middleware
 app.use(express.json());
->>>>>>> Stashed changes
 
 // CORS Middleware to allow cross-origin requests
 app.use(cors({

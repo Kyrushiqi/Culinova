@@ -26,7 +26,7 @@ export default function Login() {
         setData({
           
         });
-        navigate('/')
+        navigate('/cookbook')
       }
     } catch (error) {
 

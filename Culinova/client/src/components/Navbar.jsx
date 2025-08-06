@@ -15,14 +15,14 @@ export default function Navbar() {
             <Link to="/" className="navbar-brand">
             <img src={logo} id="logo" alt="Culinova Logo" />
               </Link>
-              
+            {/*  
             <nav>
               <Link to="/">Home</Link>
               <Link to="/register">Register</Link>
               <Link to="/login">Login</Link>
               <Link to="/cookbook">Cookbook</Link>
             </nav>
-
+              */}
             <form className="d-flex" role="search">
               <input
                 className="form-control search-bar"

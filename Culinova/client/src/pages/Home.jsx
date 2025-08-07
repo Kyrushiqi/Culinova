@@ -2,7 +2,14 @@ import './Home.css';
 import Navbar from '../components/Navbar';
 import Filter from '../components/Filter';
 
+import { useState } from 'react';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import Button from 'react-bootstrap/Button';
+
 export default function Home() {
+  const [key, setKey] = useState('with');
+
   return (
     <>
       <Navbar />
@@ -12,57 +19,53 @@ export default function Home() {
         <div className="main-content-container">
           <div className="main-bg">
             <div id="main-header-text">
-              <h1>Culinova</h1>
+              <h1 className="header-box">Culinova</h1>
               <h5>
                 Don’t know what to make with your ingredients? Let us help you! :D
               </h5>
             </div>
 
             <div id="with-without-container">
-              <div id="with-without-btns">
-                <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="btnradio"
-                    id="with-btn"
-                    autoComplete="off"
-                    defaultChecked
-                  />
-                  <label className="btn btn-outline-primary" htmlFor="with-btn">With</label>
+              <Tabs
+                id="controlled-tab"
+                activeKey={key}
+                onSelect={(k) => setKey(k)}
+                className="mb-3 customize-tabs"
+              >
+                <Tab eventKey="with" title="With">
+                  <div id="list-ingredients-box">
+                    <textarea
+                      className="form-control"
+                      aria-label="With"
+                      placeholder="List your ingredients here (comma-separated)..."
+                      id="textarea-ingredients"
+                    ></textarea>
+                  </div>
+                </Tab>
 
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="btnradio"
-                    id="without-btn"
-                    autoComplete="off"
-                  />
-                  <label className="btn btn-outline-primary" htmlFor="without-btn">Without</label>
-                </div>
-              </div>
-
-              <div id="list-ingredients-box">
-                <textarea
-                  className="form-control"
-                  aria-label="With"
-                  placeholder="List your ingredients here (comma-separated)..."
-                  id="textarea-ingredients"
-                ></textarea>
-              </div>
+                <Tab eventKey="without" title="Without">
+                  <div id="list-ingredients-box">
+                    <textarea
+                      className="form-control"
+                      aria-label="Without"
+                      placeholder="List your ingredients here (comma-separated)..."
+                      id="textarea-ingredients"
+                    ></textarea>
+                  </div>
+                </Tab>
+                
+              </Tabs>
             </div>
           </div>
         </div>
 
         <div className="right-container">
           <div id="your-cookbook-btn">
-            <button type="button" className="btn btn-primary">
-              <h5>Your Cookbook</h5>
-            </button>
+            <Button variant="primary" id="cookbook-btn">Your Cookbook</Button>
           </div>
 
           <div id="favorites-container">
-            <h2>Favorites</h2>
+            <h2 className="header-box">Favorites</h2>
           </div>
         </div>
       </div>

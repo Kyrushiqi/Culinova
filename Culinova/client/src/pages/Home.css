@@ -2,12 +2,12 @@
     background-color: #EF7979;
 } */
 
-/* h1, h2{
+.header-box{
     background-color: #FF9E6C;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding: 10px;
-} */
+}
 
 /* Colors: 
 #EF7979 - Background color
@@ -48,83 +48,125 @@
     margin-top: 20px;
 }
 
-#with-without-btns{
+#with-without-container{
+    margin-top: 20px;
+}
+
+/* with-without tabs */
+.customize-tabs .nav-link {
+  color: black;
+  background-color: #FF9E6C;
+}
+
+/* !important is used here to override Bootstrap's default styles. */
+.customize-tabs .nav-link.active {
+  background-color: #ab6542 !important; /* Tab background when active */
+  color: rgb(12, 12, 12) !important;             /* Text color when active */
+  border-color: #ab6542 !important;     /* Optional: matching border */
+}
+
+.customize-tabs .nav-link:hover{
+    background-color: #cf7e55;
+    color: white;
+    border: none;
+}
+
+#textarea-ingredients{
+    margin-top: -17px;
+    background-color: white;
+    border-top-left-radius: 0;
+    border: none;
+}
+
+/* #with-without-btns{
     display: flex;
     flex-direction: row;
-}
+} */
 
 /* Default (not selected) */
-.btn-group {
+/* .btn-group {
   background-color: #FF9E6C;
   color: #000000;
-  border-color: #FF9E6C;
+  /* border-color: #FF9E6C;
   border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
+  border-bottom-left-radius: 0; 
+} */
 
 /* Hover */
-.btn-group:hover {
+/* .btn-group:hover {
   background-color: #ff7f3e;
   color: #ffffff;
   border-color: rgb(255, 0, 208);
-}
+} */
 
 /* Selected / Active */
-.btn-check:checked + .btn-outline-primary {
-  background-color: #a95932;
+/* .btn-check:checked + .btn-outline-primary {
+  background-color: #32a93c;
   color: rgb(0, 0, 0);
   border-color: #a95932;
-}
+} */
 
 
-#textarea-ingredients{
+/* #textarea-ingredients{
     border-top-left-radius: 0;
-}
+} */
 
-#ingredients-showcase-box{
+/* #ingredients-showcase-box{
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     margin-top: 20px;
     padding: 10px;
     text-align: left;
-}
+} */
 
 /* Right side of Homepage */
 .right-container{
     display: flex;
     flex-direction: column;
     margin-right: 20px;
-    margin-top: 20px;
-    padding: 50px;
-
+    margin-top: 38px;
+    padding: 20px;
+    border-radius: 5px;
     text-align: center;
 
     background-color: pink;
+
+    position: sticky;
+    top: 20px; 
+    
+    align-self: flex-start;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 /* Your cookbook button */
-.btn-primary{
+#cookbook-btn{
     padding: 20px;
     background-color: #F9E5A8;
     color: black;
     border-color: #FF9E6C;
-    border-width: 8px;
+    border-width: 5px;
+    
+
+    transition: transform 0.3s ease;
 }
 
-.btn-primary:hover{
+#cookbook-btn:hover{
     background-color: #f1d275;
     color: black;
     border-color: #ff8446;
+    transform: scale(1.1);
 }
 
-.btn-primary:active,
-.btn-primary.active,
+#cookbook-btn:active,
+#cookbook-btn.active,
 .show > .btn-primary.dropdown-toggle {
   background-color: #e8682a !important; /* On click */
   border-color: #e8682a !important;
   color: #ffffff !important;
 }
 
+/* Favorites */
 #favorites-container{
     display: flex;
     flex-direction: column;
@@ -132,4 +174,5 @@
     margin-top: 15px;
     border-radius: 5px;
     background-color: #F9E5A8;
+    
 }

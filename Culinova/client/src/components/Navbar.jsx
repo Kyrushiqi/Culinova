@@ -30,6 +30,7 @@ export default function Navbar() {
               <Link to="/cookbook">Cookbook</Link>
             </nav>
               */}
+              
             <div className="navbar-right-section">
             <Form inline className="d-flex">
               <Form.Control

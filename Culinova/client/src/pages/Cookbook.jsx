@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { UserContext } from "../../context/userContext";
 import toast from 'react-hot-toast';
+import Navbar from '../components/Navbar';
 
 export default function Cookbook() {
     const { user } = useContext(UserContext);
@@ -16,6 +17,7 @@ export default function Cookbook() {
 
     return (
         <div>
+          <Navbar />
         </div>
     );
 }

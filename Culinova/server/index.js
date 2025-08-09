@@ -5,6 +5,9 @@ const {mongoose} = require('mongoose')
 const app = express();
 const cookieParser = require('cookie-parser')
 
+import recipeRoutes from'./routes/recipeRoutes.js';
+app.use('/api', recipeRoutes);
+
 //database connection
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log('Database connected'))

@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Filter from '../components/Filter';
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Button from 'react-bootstrap/Button';
@@ -61,7 +62,7 @@ export default function Home() {
 
         <div className="right-container">
           <div id="your-cookbook-btn">
-            <Button variant="primary" id="cookbook-btn">Your Cookbook</Button>
+            <Button as={Link} to="/cookbook" variant="primary" id="cookbook-btn">Your Cookbook</Button>
           </div>
 
           <div id="favorites-container">

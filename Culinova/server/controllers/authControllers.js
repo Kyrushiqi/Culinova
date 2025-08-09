@@ -107,9 +107,14 @@ const getProfile = (req, res) => {
     }
 }
 
+const logoutUser = (req, res) => {
+    res.cookie('token', '').json('Logout successful');
+}
+
 module.exports = {
     test,
     registerUser,
     loginUser,
-    getProfile
+    getProfile,
+    logoutUser
 }

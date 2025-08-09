@@ -3,6 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
 import './Register.css';
+import Navbar from "../components/Navbar";
 
 
 export default function Register() {
@@ -34,6 +35,8 @@ export default function Register() {
   }
 
   return (
+  <>
+    <Navbar />
     <div className="container">
       <div className="register-box">
         <h2 className="title">Register</h2>
@@ -72,5 +75,6 @@ export default function Register() {
         </p>
       </div>
     </div>
+  </>
   );
 }

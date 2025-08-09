@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 import logo from '../assets/logo.png';
@@ -22,7 +21,7 @@ export default function Navbar() {
               <img src={logo} id="logo" alt="Culinova Logo" />
             </Link>
 
-            {/*  
+{/*              
             <nav>
               <Link to="/">Home</Link>
               <Link to="/register">Register</Link>

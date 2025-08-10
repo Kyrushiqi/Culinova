@@ -2,8 +2,10 @@ import { useState } from "react";
 import './Login.css';
 import axios from 'axios';
 import {toast} from 'react-hot-toast'
-import {useNavigate} from 'react-router-dom';
+import {redirect, useNavigate} from 'react-router-dom';
 import Navbar from "../components/Navbar";
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 
 export default function Login() {
   const navigate = useNavigate()
@@ -12,6 +14,7 @@ export default function Login() {
     password: '',
   });
 
+  const { setUser } = useContext(UserContext);
   const loginUser = async (e) => {
     e.preventDefault()
     const {email, password} = data
@@ -27,7 +30,8 @@ export default function Login() {
         setData({
           
         });
-        navigate('/cookbook')
+        navigate('/')
+        location.reload();
       }
     } catch (error) {
 

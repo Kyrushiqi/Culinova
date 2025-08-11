@@ -1,6 +1,9 @@
-/* body {
-    background-color: #EF7979;
-} */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 
 .header-box{
     background-color: #FF9E6C;
@@ -30,7 +33,7 @@
   flex: 1; /* Take up remaining space */
   /* display: flex;
   flex-direction: column; */
-  max-width: 1200px; 
+  max-width: 1190px; 
   margin: 0 auto;   /* this centers it horizontally */
   padding: 20px;    /* optional spacing inside the container */
 }
@@ -76,48 +79,39 @@
     background-color: white;
     border-top-left-radius: 0;
     border: none;
+    max-height: 200px;
 }
 
-/* #with-without-btns{
-    display: flex;
-    flex-direction: row;
-} */
-
-/* Default (not selected) */
-/* .btn-group {
-  background-color: #FF9E6C;
-  color: #000000;
-  /* border-color: #FF9E6C;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0; 
-} */
-
-/* Hover */
-/* .btn-group:hover {
-  background-color: #ff7f3e;
-  color: #ffffff;
-  border-color: rgb(255, 0, 208);
-} */
-
-/* Selected / Active */
-/* .btn-check:checked + .btn-outline-primary {
-  background-color: #32a93c;
-  color: rgb(0, 0, 0);
-  border-color: #a95932;
-} */
-
-
-/* #textarea-ingredients{
-    border-top-left-radius: 0;
-} */
-
-/* #ingredients-showcase-box{
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    margin-top: 20px;
+.display-box{
+    border: 1px solid #ccc;
     padding: 10px;
-    text-align: left;
-} */
+    border-radius: 5px;
+    background-color: white;
+    max-width: 1190px;
+    overflow: hidden;
+
+    margin-top: 30px;
+}
+
+.display-box p{
+    text-align: start;
+}
+
+.display-box pre {
+  white-space: pre-wrap;   /* Wrap lines while keeping line breaks */
+  word-wrap: break-word;   /* Break long words if needed */
+  overflow-wrap: break-word; /* Modern alias for word-wrap */
+  text-align: start;
+}
+
+/* Recipe Cards */
+.card-bg{
+    background-color: #F9E5A8;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 100px;
+    padding-bottom: 800px;
+}
 
 /* Right side of Homepage */
 .right-container{

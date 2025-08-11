@@ -71,7 +71,7 @@ export default function Register() {
           <button type="submit" className="button">Sign up</button>
         </form>
         <p className="signup-text">
-          Already have an Account? <a href="/Login">Login</a>
+          Already have an Account? <a href="/login">Login</a>
         </p>
       </div>
     </div>

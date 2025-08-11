@@ -27,7 +27,7 @@ export default function Navbar() {
     try {
       await axios.get('/logout');
       setUser(null);
-      toast.success(`Signed out successfully, ${username}`);
+      toast.success(`Signed out successfully, ${username}!`);
       navigate('/');
     } catch (error) {
       console.error('Logout failed', error);

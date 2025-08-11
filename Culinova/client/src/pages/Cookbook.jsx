@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import Navbar from '../components/Navbar';
 
 export default function Cookbook() {
+    /*
     const { user } = useContext(UserContext);
 
     useEffect(() => {
@@ -14,7 +15,7 @@ export default function Cookbook() {
             toast.success(`Welcome to your cookbook ${user.name}!`);
         }
     }, [user]);
-
+    */
     return (
         <div>
           <Navbar />

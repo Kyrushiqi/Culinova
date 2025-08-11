@@ -2,7 +2,6 @@ import './Home.css';
 import Navbar from '../components/Navbar';
 import Filter from '../components/Filter';
 import RecipeCards from '../components/RecipeCards';
-import RecipeDetail from '../pages/RecipeDetail';
 
 import { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
@@ -92,11 +91,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* <Routes>
-        <Route path="/" element={<RecipeCards />} />
-        <Route path="/recipes/:id" element={<RecipeDetail />} />
-      </Routes> */}
     </>
   );
 }

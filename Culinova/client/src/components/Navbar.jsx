@@ -74,7 +74,7 @@ export default function Navbar() {
                   title={ <img src={profilePic} alt="Profile" style={{ width: '30px', height: '30px', borderRadius: '50%' }} /> }
                 >
                   <Dropdown.Item as={Link} to="/login">Login</Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/register">Register</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/register" className="register">Register</Dropdown.Item>
                 </DropdownButton>
               )}
             </div>

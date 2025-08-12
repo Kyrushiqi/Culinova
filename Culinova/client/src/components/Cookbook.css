@@ -1,0 +1,66 @@
+/* Colors: 
+#EF7979 - Background color
+#A8396D - Navbar color
+#F9E5A8 - Yellow
+#FF9E6C - Orange
+*/
+
+.cookbook-container{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-right: 20px;
+    /* background-color: red; */
+}
+
+#cookbook-title{
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: -20px;
+}
+
+/* cookbook tabs group */
+.cookbook-tabs {
+  margin-left: 1200px;
+  margin-bottom: -16px;
+}
+
+/* 3 tabs - tab buttons themselves */
+.customize-tabs .nav-link{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.customize-tabs.nav-tabs {
+  border-bottom: none !important; /* removes the line under the tab group */
+}
+
+.cookbook-yellow-bg{
+    height: 700px;
+    padding: 20px;
+    margin-left: 20px;
+    background-color: #F9E5A8;
+
+    border-radius: 20px;
+    border-color: #FF9E6C;
+    border-width: 5px;
+    border-style: solid;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cookbook-white-bg{
+    height: 640px;
+    background-color: white;
+    border-radius: 10px;
+    
+    display: flex; /* For centering the vertical line */
+    justify-content: center;
+    align-items: center;
+}
+
+.vertical-line {
+    height: 100%;
+    border-left: 1px solid #ccc;
+}

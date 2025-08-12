@@ -72,6 +72,14 @@
     background-color: #f1d275!important;
 }
 
+.register:hover{
+    background-color: #EF7979 !important;
+}
+
+.register:active{
+    background-color: #EF7979 !important;
+}
+
 .logout:hover{
     background-color: #EF7979 !important;
 }

@@ -21,13 +21,11 @@ export default function Home() {
         <Filter />
 
         <div className="main-content-container">
+          <h1 className="header-box">Culinova</h1>
           <div className="main-bg">
-            <div id="main-header-text">
-              <h1 className="header-box">Culinova</h1>
               <h5>
                 Don’t know what to make with your ingredients? Let us help you! :D
               </h5>
-            </div>
 
             <div id="with-without-container">
               <Tabs
@@ -72,8 +70,10 @@ export default function Home() {
 
                 <p><strong>Without Ingredients:</strong></p>
                 <pre>{withoutIngredients}</pre>
+                
+                <Button as="input" type="submit" value="Submit" id="submit-btn"/>
               </div>
-              
+      
             </div>
           </div>
 
@@ -83,12 +83,11 @@ export default function Home() {
         </div>
 
         <div className="right-container">
-          <div id="your-cookbook-btn">
-            <Button as={Link} to="/cookbook" variant="primary" id="cookbook-btn">Your Cookbook</Button>
-          </div>
+          <Button as={Link} to="/cookbook" variant="primary" id="cookbook-btn">Your Cookbook</Button>
 
+          <h2 className="header-box">Favorites</h2>
           <div id="favorites-container">
-            <h2 className="header-box">Favorites</h2>
+            <div id="favorites-bg"></div>
           </div>
         </div>
       </div>

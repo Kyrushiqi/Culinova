@@ -54,8 +54,8 @@ export default function FilterForm() {
   return (
     <div className="format">
       <div className="filter-container">
-        <div className="filter-bg">          
-          <h2 className="header-box">Filter</h2>
+        <div className="filter-bg">
+          <h2 id="filter-txt">Filter</h2>       
           {[
             'Vegan',
             'Vegetarian',

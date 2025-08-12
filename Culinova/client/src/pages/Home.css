@@ -7,9 +7,12 @@ body {
 
 .header-box{
     background-color: #FF9E6C;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     padding: 10px;
+    text-align: center;
+    margin-bottom: -20px;
+    margin-top: 20px;
 }
 
 /* Colors: 
@@ -41,14 +44,10 @@ body {
 .main-bg{
     text-align: center;
     padding: 20px;
-    border-radius: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     margin-top: 20px;
     background-color: #F9E5A8;
-}
-
-#main-header-text{
-    text-align: center;
-    margin-top: 20px;
 }
 
 #with-without-container{
@@ -85,7 +84,7 @@ body {
 .display-box{
     border: 1px solid #ccc;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: white;
     max-width: 1190px;
     overflow: hidden;
@@ -104,26 +103,34 @@ body {
   text-align: start;
 }
 
+#submit-btn{
+    display: block;
+    margin-left: auto;
+
+    background-color: #FF9E6C;
+    border-color: #FF9E6C;
+    color: black;
+}
+
+#submit-btn:hover{
+    background-color: #cf7e55;
+    border-color: #cf7e55;
+}
+
 /* Recipe Cards */
 .card-bg{
     background-color: #F9E5A8;
     margin-top: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 100px;
     padding-bottom: 800px;
 }
 
 /* Right side of Homepage */
 .right-container{
-    display: flex;
-    flex-direction: column;
     margin-right: 20px;
-    margin-top: 38px;
-    padding: 20px;
-    border-radius: 5px;
+    margin-top: 40px;
     text-align: center;
-
-    background-color: pink;
 
     position: sticky;
     top: 20px; 
@@ -131,17 +138,19 @@ body {
     align-self: flex-start;
     max-height: 90vh;
     overflow-y: auto;
+
+    overflow: visible; /* Cookbook-btn doesn't look like its expanding within a container with this*/
 }
 
 /* Your cookbook button */
 #cookbook-btn{
-    padding: 20px;
+    padding: 30px;
     background-color: #F9E5A8;
     color: black;
     border-color: #FF9E6C;
     border-width: 5px;
+    border-radius: 10px;
     
-
     transition: transform 0.3s ease;
 }
 
@@ -150,6 +159,7 @@ body {
     color: black;
     border-color: #ff8446;
     transform: scale(1.1);
+    
 }
 
 #cookbook-btn:active,
@@ -164,9 +174,15 @@ body {
 #favorites-container{
     display: flex;
     flex-direction: column;
-    
-    margin-top: 15px;
-    border-radius: 5px;
+    margin-top: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#favorites-bg{
     background-color: #F9E5A8;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     
+    padding-bottom: 359px;
 }

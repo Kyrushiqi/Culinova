@@ -1,0 +1,15 @@
+.form-sections {
+  display: flex;
+  gap: 2rem;
+}
+
+.form-section {
+  flex: 1;
+}
+
+/* Stack vertically on small screens */
+@media (max-width: 768px) {
+  .form-sections {
+    flex-direction: column;
+  }
+}

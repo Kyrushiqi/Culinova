@@ -4,12 +4,13 @@ import toast from 'react-hot-toast';
 
 import Navbar from './Navbar';
 import './Cookbook.css';
+import CreateRecipeForm from './CreateRecipeForm';
 
 import { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-export default function Cookbook() {
+export default function Cookbook({isAddingRecipe}) {
     /*
     const { user } = useContext(UserContext);
 
@@ -24,13 +25,15 @@ export default function Cookbook() {
     */
 
     const [key, setKey] = useState('all');
+    // const [showForm, setShowForm] = useState(false);
 
     return (
         <div>
             <Navbar />
-            
             <div className="cookbook-container"> 
+                {/* <h2 id="cookbook-title">{showForm ? "Add Recipe" : "Your Cookbook"}</h2> */}
                 <h2 id="cookbook-title">Your Cookbook</h2>
+                
                 <div className="cookbook-tabs">
                     <Tabs
                     id="controlled-tab"
@@ -45,8 +48,10 @@ export default function Cookbook() {
                 </div>
                 <div className="cookbook-yellow-bg">
                     <div className="cookbook-white-bg">
+                        <CreateRecipeForm />
                         <div class="vertical-line"></div>
                         {/* content */}
+                        {/* <CreateRecipeForm /> */}
                     </div>
                 </div>
             </div>

@@ -1,0 +1,38 @@
+/* Save button */
+.save-btn {
+  color: black !important; 
+  background-color: #FF9E6C !important;
+  border: none !important;
+}
+
+/* !important is used here to override Bootstrap's default styles. */
+.save-btn:active {
+  background-color: #ab6542 !important; /* Tab background when active */
+  color: rgb(12, 12, 12) !important; /* Text color when active */
+  border-color: #ab6542 !important;
+}
+
+.save-btn:hover{
+    background-color: #cf7e55 !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* Cancel button */
+.cancel-btn {
+  color: white !important; 
+  background-color: #A8396D !important;
+  border: none !important;
+}
+
+.cancel-btn:active {
+  background-color: #d15c93 !important; 
+  color: white !important;
+  border-color: #d15c93 !important;
+}
+
+.cancel-btn:hover{
+    background-color: #d15c93 !important;
+    color: white !important;
+    border: none !important;
+}

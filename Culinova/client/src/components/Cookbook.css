@@ -6,58 +6,68 @@
 */
 
 .cookbook-container{
+    padding: 0 20px;
+}
+
+.cookbook-header{
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    margin-right: 20px;
-    /* background-color: red; */
+    align-items: center;
+    margin-top: 20px;
+    /* Remove the bottom margin that was creating a gap */
+    margin-bottom: 0;
 }
 
 #cookbook-title{
-    margin-top: 20px;
-    margin-left: 30px;
-    margin-bottom: -20px;
+    margin-bottom: 15px;
+    margin-left: 20px;
 }
 
 /* cookbook tabs group */
 .cookbook-tabs {
-  margin-left: 1200px;
-  margin-bottom: -16px;
+    margin-left: auto;
+    margin-right: 50px;
+    margin-bottom: -13px;
+    /* position: relative; Nudges the position */
+    /* z-index: 1; Makes sure tabs appear on top of the border */
 }
 
-/* 3 tabs - tab buttons themselves */
-.customize-tabs .nav-link{
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+.add-recipe-btn {
+  color: black !important; 
+  background-color: #FF9E6C !important;
+  border: none !important;
 }
 
-.customize-tabs.nav-tabs {
-  border-bottom: none !important; /* removes the line under the tab group */
+/* !important is used here to override Bootstrap's default styles. */
+.add-recipe-btn:active {
+  background-color: #ab6542 !important; /* Tab background when active */
+  color: rgb(12, 12, 12) !important; /* Text color when active */
+  border-color: #ab6542 !important;  
+}
+
+.add-recipe-btn:hover{
+    background-color: #cf7e55 !important;
+    color: white !important;
+    border: none !important;
 }
 
 .cookbook-yellow-bg{
     height: 700px;
     padding: 20px;
-    margin-left: 20px;
     background-color: #F9E5A8;
 
     border-radius: 20px;
     border-color: #FF9E6C;
     border-width: 5px;
     border-style: solid;
-
-    display: flex;
-    flex-direction: column;
 }
 
 .cookbook-white-bg{
-    height: 640px;
+    height: 100%;
     background-color: white;
     border-radius: 10px;
     
-    display: flex; /* For centering the vertical line */
-    justify-content: center;
-    align-items: center;
+    padding: 20px;
+    overflow-y: auto; /* When content overflows, vertical scrolling is enabled */
 }
 
 .vertical-line {

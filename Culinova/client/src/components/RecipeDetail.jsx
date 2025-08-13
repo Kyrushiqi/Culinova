@@ -5,6 +5,8 @@ import Badge from 'react-bootstrap/Badge';
 import ListGroup from 'react-bootstrap/ListGroup';
 import UpdateRecipeForm from './UpdateRecipeForm';
 
+import './recipeDetail.css';
+
 export default function RecipeDetail({ recipe, onBack, onRecipeDeleted, onRecipeUpdated }) {
     const { user } = useContext(UserContext);
     const [isEditing, setIsEditing] = useState(false);
@@ -29,19 +31,19 @@ export default function RecipeDetail({ recipe, onBack, onRecipeDeleted, onRecipe
     // Otherwise, render the recipe details
     return (
         <div className="p-md-4 p-2">
-            <Button variant="outline-secondary" onClick={onBack} className="mb-4">
-                &larr; Back to Cookbook
+            <Button variant="outline-secondary" onClick={onBack} className="mb-4 back-btn">
+                &larr; Back
             </Button>
             
             {/* Only show Edit/Delete buttons if the logged-in user is the owner */}
             {isOwner && (
                 <div className="float-end">
-                    <Button variant="secondary" className="me-2" onClick={() => setIsEditing(true)}>Edit</Button>
-                    <Button variant="danger" onClick={handleDelete}>Delete</Button>
+                    <Button variant="secondary" className="me-2 edit-btn" onClick={() => setIsEditing(true)}>Edit</Button>
+                    <Button variant="danger" onClick={handleDelete} className="delete-btn">Delete</Button>
                 </div>
             )}
 
-            <img src={recipe.photo_url} className="img-fluid rounded mb-4 w-100" alt={recipe.recipe_name} style={{maxHeight: "450px", objectFit: "cover"}}/>
+            <img src={recipe.photo_url} className="img-fluid rounded mb-4 w-100 recipe-img" alt={recipe.recipe_name}/>
 
             <p className="lead">{recipe.description}</p>
             

@@ -99,7 +99,7 @@ export default function FilterForm() {
               </select>
             </div>
 
-            <label htmlFor="ratingInput">Filter by Rating:</label>
+            {/* <label htmlFor="ratingInput">Filter by Rating:</label>
             <div className="dropdown-form">
               <select
                 className="form-select form-select-sm mt-1"
@@ -114,7 +114,7 @@ export default function FilterForm() {
                 <option value="⭐⭐⭐⭐☆">⭐⭐⭐⭐☆</option>
                 <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
               </select>
-            </div>
+            </div> */}
           </div>
 
           <div id="filter-btns">

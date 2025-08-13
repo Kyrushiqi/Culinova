@@ -64,7 +64,7 @@ export default function Navbar() {
                   title={ <img src={profilePic} alt="Profile" style={{ width: '30px', height: '30px', borderRadius: '50%' }} /> }
                 >
                   <Dropdown.Item>Profile ({user.name})</Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/cookbook">Your Cookbook</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/cookbook">Cookbook</Dropdown.Item>
                   <Dropdown.Item onClick={handleSignout} className="logout">Logout</Dropdown.Item>
                 </DropdownButton>
               ) : (

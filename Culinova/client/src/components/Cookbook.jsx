@@ -98,7 +98,7 @@ export default function Cookbook() {
                     </>
                 );
             case 'favs':
-                return <p>Your favorite recipes will appear here.</p>;
+                return <p>Favorite Recipe Feature Upcoming...</p>;
             case 'community':
             default:
                 return loading ? <p>Loading...</p> : <RecipeList recipes={publicRecipes} onRecipeSelect={handleRecipeSelect} />;

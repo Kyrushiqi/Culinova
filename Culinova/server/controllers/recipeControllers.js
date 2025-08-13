@@ -89,11 +89,31 @@ const deleteRecipe = async (req, res) => {
     }
 };
 
+const getRecipeByExactName = async (req, res) => {
+  try {
+    const name = (req.query.name || '').trim();
+    if (!name) return res.status(400).json({ error: 'name is required' });
+
+    // Exact match on recipe_name, case-insensitive via collation
+    const recipe = await Recipe.findOne({ recipe_name: name })
+      .collation({ locale: 'en', strength: 2 })
+      .populate('user', 'name')
+      .lean();
+
+    if (!recipe) return res.status(404).json({ error: 'Recipe not found' });
+    return res.status(200).json(recipe);
+  } catch (error) {
+    console.error('getRecipeByExactName error:', error);
+    res.status(500).json({ error: 'Server error while finding recipe by name' });
+  }
+};
+
 module.exports = {
     getAllPublicRecipes,
     createRecipe,
     getAllUserRecipes,
     getRecipeById,
     updateRecipe,
-    deleteRecipe
+    deleteRecipe, 
+    getRecipeByExactName
 };

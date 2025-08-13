@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import { UserContext } from "../../context/userContext";
 import toast from 'react-hot-toast';
 import Tab from 'react-bootstrap/Tab';
@@ -14,6 +15,8 @@ import './Cookbook.css';
 
 export default function Cookbook() {
     const { user } = useContext(UserContext);
+    const location = useLocation();
+
     const [myRecipes, setMyRecipes] = useState([]);
     const [publicRecipes, setPublicRecipes] = useState([]);
     const [selectedRecipe, setSelectedRecipe] = useState(null);
@@ -21,6 +24,7 @@ export default function Cookbook() {
     const [activeTab, setActiveTab] = useState('community');
     const [isCreating, setIsCreating] = useState(false);
 
+    // Load recipes
     useEffect(() => {
         const loadRecipes = async () => {
             setLoading(true);
@@ -39,7 +43,15 @@ export default function Cookbook() {
         };
         loadRecipes();
     }, [user]);
-    
+
+    useEffect(() => {
+    const id = location.state?.openRecipeId; // ← must match the key in navigate()
+    if (id) {
+        handleRecipeSelect(id);
+        window.history.replaceState({}, '', '/cookbook'); // optional: clear state
+    }
+    }, [location.state]);
+
     const handleRecipeSelect = async (recipeId) => {
         try {
             const data = await recipeService.getRecipeById(recipeId);
@@ -68,7 +80,7 @@ export default function Cookbook() {
             toast.error("Could not delete recipe.");
         }
     };
-    
+
     const handleRecipeUpdated = (updatedRecipe) => {
         const updateList = (recipes) => recipes.map(r => r._id === updatedRecipe._id ? updatedRecipe : r);
         setMyRecipes(updateList);
@@ -98,7 +110,7 @@ export default function Cookbook() {
                     </>
                 );
             case 'favs':
-                return <p>Your favorite recipes will appear here.</p>;
+                return <p>Upcoming favorite recipe feature...</p>;
             case 'community':
             default:
                 return loading ? <p>Loading...</p> : <RecipeList recipes={publicRecipes} onRecipeSelect={handleRecipeSelect} />;

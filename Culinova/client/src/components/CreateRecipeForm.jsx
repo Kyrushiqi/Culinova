@@ -96,7 +96,7 @@ export default function CreateRecipeForm({ onRecipeCreated }) {
                     ))}
                 </div>
             </Form.Group>
-            <Button variant="primary" type="submit">Submit Recipe</Button>
+            <Button variant="primary" type="submit" className="save-btn">Submit Recipe</Button>
         </Form>
     );
 }

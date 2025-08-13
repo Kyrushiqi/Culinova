@@ -42,17 +42,9 @@ export default function Navbar() {
     if (!name) return toast.error('Type a recipe name to search.');
 
     try {
-      // GET /api/recipes/by-name?name=<recipe_name>
       const { data } = await axios.get('/api/recipes/by-name', { params: { name } });
 
-      const cookbook = data.cookbook_url || data.cookbook;
-      if (cookbook) {
-        window.location.assign(cookbook);
-      } else if (data._id) {
-        navigate(`/recipes/${data._id}`);
-      } else {
-        toast('Recipe found, but no link to open.', { icon: 'ℹ️' });
-      }
+      navigate('/cookbook', { state: { openRecipeId: data._id } });
     } catch (err) {
       if (err?.response?.status === 404) {
         toast.error('No recipe found with that exact name.');
@@ -73,7 +65,7 @@ export default function Navbar() {
 
           {!isAuthPage && (
             <div className="navbar-right-section">
-              {/* Wire the form + controlled input */}
+              {/* ✅ keep the input controlled and submit through the fixed handler */}
               <Form className="d-flex" onSubmit={handleSearchSubmit}>
                 <Form.Control
                   type="text"
@@ -87,37 +79,6 @@ export default function Navbar() {
                   <img src={searchIcon} id="search-icon" alt="Search" />
                 </Button>
               </Form>
-
-              {user ? (
-                <DropdownButton
-                  id="dropdown-basic-button"
-                  title={
-                    <img
-                      src={profilePic}
-                      alt="Profile"
-                      style={{ width: '30px', height: '30px', borderRadius: '50%' }}
-                    />
-                  }
-                >
-                  <Dropdown.Item>Profile ({user.name})</Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/cookbook">Your Cookbook</Dropdown.Item>
-                  <Dropdown.Item onClick={handleSignout} className="logout">Logout</Dropdown.Item>
-                </DropdownButton>
-              ) : (
-                <DropdownButton
-                  id="dropdown-basic-button"
-                  title={
-                    <img
-                      src={profilePic}
-                      alt="Profile"
-                      style={{ width: '30px', height: '30px', borderRadius: '50%' }}
-                    />
-                  }
-                >
-                  <Dropdown.Item as={Link} to="/login">Login</Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/register" className="register">Register</Dropdown.Item>
-                </DropdownButton>
-              )}
             </div>
           )}
         </div>

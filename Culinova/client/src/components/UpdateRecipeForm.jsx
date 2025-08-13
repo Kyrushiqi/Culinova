@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import recipeService from '../services/recipeService'; // Import the service
 
+import './UpdateRecipeForm.css';
+
 export default function UpdateRecipeForm({ recipe, onUpdateSuccess, onCancel }) {
     // This is the key part: The form's initial state is set using the 'recipe' prop.
     // This pre-fills all the fields with the existing data.
@@ -92,8 +94,8 @@ export default function UpdateRecipeForm({ recipe, onUpdateSuccess, onCancel }) 
                 </div>
             </Form.Group>
             <div className="mt-4">
-                <Button variant="primary" type="submit" className="me-2">Save Changes</Button>
-                <Button variant="secondary" onClick={onCancel}>Cancel</Button>
+                <Button variant="primary" type="submit" className="me-2 save-btn">Save Changes</Button>
+                <Button variant="secondary" onClick={onCancel} className="cancel-btn">Cancel</Button>
             </div>
         </Form>
     );

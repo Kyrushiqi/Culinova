@@ -83,7 +83,7 @@ export default function Home() {
         </div>
 
         <div className="right-container">
-          <Button as={Link} to="/cookbook" variant="primary" id="cookbook-btn">Your Cookbook</Button>
+          <Button as={Link} to="/cookbook" variant="primary" id="cookbook-btn">Cookbook</Button>
 
           <h2 className="header-box">Favorites</h2>
           <div id="favorites-container">

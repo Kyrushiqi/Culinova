@@ -1,0 +1,53 @@
+/* Colors: 
+#EF7979 - Background color
+#A8396D - Navbar color
+#F9E5A8 - Yellow
+#FF9E6C - Orange
+*/
+
+/* Back button */
+.back-btn,
+.edit-btn {
+  color: black !important; 
+  background-color: #FF9E6C !important;
+  border: none !important;
+}
+
+/* !important is used here to override Bootstrap's default styles. */
+.back-btn:active,
+.edit-btn:active {
+  background-color: #ab6542 !important; /* Tab background when active */
+  color: rgb(12, 12, 12) !important; /* Text color when active */
+  border-color: #ab6542 !important;
+}
+
+.back-btn:hover,
+.edit-btn:hover{
+    background-color: #cf7e55 !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* Delete button */
+.delete-btn {
+  color: white !important; 
+  background-color: #A8396D !important;
+  border: none !important;
+}
+
+.delete-btn:active {
+  background-color: #d15c93 !important; 
+  color: white !important;
+  border-color: #d15c93 !important;
+}
+
+.delete-btn:hover{
+    background-color: #d15c93 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.recipe-img {
+    max-height: 450px;
+    object-fit: contain;
+}

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Cookbook from './components/Cookbook';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import RecipeDetail from './components/RecipeDetail';
 
 import axios from 'axios';
 import { Toaster } from 'react-hot-toast';
@@ -24,6 +25,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/cookbook' element={<Cookbook />} />
         <Route path="/manage-recipes" element={<ManageRecipesPage />} />
+        <Route path='/recipes/:id' element={<RecipeDetail />} />
       </Routes>
     </UserContextProvider>
   );

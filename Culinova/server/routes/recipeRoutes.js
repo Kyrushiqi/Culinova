@@ -6,13 +6,16 @@ const {
     getAllUserRecipes,
     getRecipeById,
     updateRecipe,
-    deleteRecipe
+    deleteRecipe,
+    getRecipeByExactName
 } = require('../controllers/recipeControllers');
 
 // IMPORTANT: This public route must be defined before the '/:id' route
 // so that Express doesn't mistake "public" for an ID.
 router.get('/public', getAllPublicRecipes);
 
+// NEW: search by exact recipe_name
+router.get('/by-name', getRecipeByExactName);
 // Handles requests to the base '/api/recipes' URL.
 // POST creates a new recipe.
 // GET fetches all recipes for the logged-in user.

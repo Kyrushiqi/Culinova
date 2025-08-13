@@ -1,0 +1,73 @@
+import axios from 'axios';
+
+const API_URL = '/api/recipes';
+
+/**
+ * Fetches all public recipes.
+ * @returns {Promise<Array>} A promise that resolves to an array of public recipes.
+ */
+const getPublicRecipes = async () => {
+    const response = await axios.get(`${API_URL}/public`);
+    return response.data;
+};
+
+/**
+ * Fetches all recipes for the currently logged-in user.
+ * @returns {Promise<Array>} A promise that resolves to an array of the user's recipes.
+ */
+const getUserRecipes = async () => {
+    const response = await axios.get(API_URL, { withCredentials: true });
+    return response.data;
+};
+
+/**
+ * Fetches a single recipe by its ID.
+ * @param {string} recipeId - The ID of the recipe to fetch.
+ * @returns {Promise<Object>} A promise that resolves to the recipe object.
+ */
+const getRecipeById = async (recipeId) => {
+    const response = await axios.get(`${API_URL}/${recipeId}`);
+    return response.data;
+};
+
+/**
+ * Creates a new recipe.
+ * @param {Object} recipeData - The data for the new recipe.
+ * @returns {Promise<Object>} A promise that resolves to the newly created recipe object.
+ */
+const createRecipe = async (recipeData) => {
+    const response = await axios.post(API_URL, recipeData, { withCredentials: true });
+    return response.data;
+};
+
+/**
+ * Updates an existing recipe.
+ * @param {string} recipeId - The ID of the recipe to update.
+ * @param {Object} recipeData - The new data for the recipe.
+ * @returns {Promise<Object>} A promise that resolves to the updated recipe object.
+ */
+const updateRecipe = async (recipeId, recipeData) => {
+    const response = await axios.put(`${API_URL}/${recipeId}`, recipeData, { withCredentials: true });
+    return response.data;
+};
+
+/**
+ * Deletes a recipe.
+ * @param {string} recipeId - The ID of the recipe to delete.
+ * @returns {Promise<Object>} A promise that resolves to the success message.
+ */
+const deleteRecipe = async (recipeId) => {
+    const response = await axios.delete(`${API_URL}/${recipeId}`, { withCredentials: true });
+    return response.data;
+};
+
+const recipeService = {
+    getPublicRecipes,
+    getUserRecipes,
+    getRecipeById,
+    createRecipe,
+    updateRecipe,
+    deleteRecipe,
+};
+
+export default recipeService;

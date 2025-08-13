@@ -6,19 +6,13 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import recipeService from '../services/recipeService'; // Import the service
 
-export default function CreateRecipeForm({ onRecipeCreated }) {
-    // 1. The state now matches your backend schema (e.g., recipe_name)
+export default function UpdateRecipeForm({ recipe, onUpdateSuccess, onCancel }) {
+    // This is the key part: The form's initial state is set using the 'recipe' prop.
+    // This pre-fills all the fields with the existing data.
     const [formData, setFormData] = useState({
-        recipe_name: "", 
-        description: "", 
-        ingredients: "", 
-        directions: "", 
-        photo_url: "",
-        prep_time: "", 
-        cook_time: "", 
-        total_time: "", 
-        nutrition: "",
-        dietary_filters: { vegan: false, vegetarian: false, gluten_free: false, dairy_free: false, nut_free: false, halal: false, kosher: false, drinks: false }
+        ...recipe,
+        // The ingredients array is converted to a comma-separated string for the textarea
+        ingredients: recipe.ingredients.join(', '), 
     });
 
     const handleChange = (e) => {
@@ -30,24 +24,25 @@ export default function CreateRecipeForm({ onRecipeCreated }) {
         }
     };
 
-    // 2. This function now sends the data to the backend
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // The ingredients string is converted back into an array for the backend
         const submissionData = { ...formData, ingredients: formData.ingredients.split(',').map(item => item.trim()) };
         try {
-            const newRecipe = await recipeService.createRecipe(submissionData);
-            // Tell the parent component that a new recipe was created to update the UI
-            onRecipeCreated(newRecipe);
+            const updatedRecipe = await recipeService.updateRecipe(recipe._id, submissionData);
+            toast.success("Recipe updated!");
+            // Tell the parent component (RecipeManager) that the update was successful
+            onUpdateSuccess(updatedRecipe);
         } catch (error) {
-            toast.error('Failed to create recipe. Please check the fields and try again.');
-            console.error(error);
+            toast.error('Update failed.');
         }
     };
 
     return (
         <Form onSubmit={handleSubmit} className="p-4 bg-light rounded-3">
-            <h4 className="mb-4">Add a New Recipe</h4>
-            {/* 3. The 'name' attributes of the form fields now match the state */}
+            <h4 className="mb-4">Editing: {recipe.recipe_name}</h4>
+            
+            {/* The form fields are identical to CreateRecipeForm, just pre-filled with data */}
             <Row className="mb-3">
                 <Form.Group as={Col} sm={8}>
                     <Form.Label>Recipe Name</Form.Label>
@@ -96,7 +91,10 @@ export default function CreateRecipeForm({ onRecipeCreated }) {
                     ))}
                 </div>
             </Form.Group>
-            <Button variant="primary" type="submit">Submit Recipe</Button>
+            <div className="mt-4">
+                <Button variant="primary" type="submit" className="me-2">Save Changes</Button>
+                <Button variant="secondary" onClick={onCancel}>Cancel</Button>
+            </div>
         </Form>
     );
 }

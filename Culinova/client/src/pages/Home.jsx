@@ -1,7 +1,7 @@
 import './Home.css';
 import Navbar from '../components/Navbar';
 import Filter from '../components/Filter';
-import RecipeCards from '../components/RecipeCards';
+//import RecipeCards from '../components/RecipeCards';
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -78,7 +78,7 @@ export default function Home() {
           </div>
 
           <div className="card-bg">
-            <RecipeCards />
+            {/*<RecipeCards />*/}
           </div>
         </div>
 

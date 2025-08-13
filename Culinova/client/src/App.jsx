@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
+import ManageRecipesPage from './pages/ManageRecipesPage';
 import Home from './pages/Home'; 
 import Cookbook from './components/Cookbook';
 import Register from './pages/Register';
@@ -22,6 +23,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/cookbook' element={<Cookbook />} />
+        <Route path="/manage-recipes" element={<ManageRecipesPage />} />
       </Routes>
     </UserContextProvider>
   );

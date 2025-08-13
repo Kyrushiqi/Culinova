@@ -1,33 +1,55 @@
-import mongoose from "mongoose";
-import { insertMany } from "./user";
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const recipeSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        requred: true,
-    },
-    ingredients: [
-        {
-            type: String,
-            requred: true
-        }
-    ],
-    instructions: {
-        type: String,
+const recipeSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User', // This should match the name you used for your User model
         required: true
     },
-    category: {
+    recipe_name: {
         type: String,
-        required: true,
+        required: [true, 'Recipe name is required']
     },
-    photoUrl: {
+    ingredients: {
+        type: [String],
+        required: [true, 'Ingredients are required']
+    },
+    description: {
         type: String,
-        required: true,
     },
-}, {
-    timestamps: true
-});
+    directions: {
+        type: String,
+        required: [true, 'Directions are required']
+    },
+    dietary_filters: {
+        vegan: { type: Boolean, default: false },
+        vegetarian: { type: Boolean, default: false },
+        gluten_free: { type: Boolean, default: false },
+        dairy_free: { type: Boolean, default: false },
+        nut_free: { type: Boolean, default: false },
+        halal: { type: Boolean, default: false },
+        kosher: { type: Boolean, default: false },
+        drinks: { type: Boolean, default: false },
+    },
+    total_time: {
+        type: Number // in minutes
+    },
+    cook_time: {
+        type: Number // in minutes
+    },
+    prep_time: {
+        type: Number // in minutes
+    },
+    nutrition: {
+        type: String
+    },
+    photo_url: {
+        type: String,
+        default: 'https://placehold.co/600x400/EEE/31343C?text=No+Image'
+    }
+}, { timestamps: true }); // Adds createdAt and updatedAt timestamps
 
-const Recipe = mongoose.model("Recipe", recipeSchema)
+const RecipeModel = mongoose.model('Recipe', recipeSchema);
 
-export default Recipe;
+module.exports = RecipeModel;

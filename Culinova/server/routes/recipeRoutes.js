@@ -7,12 +7,16 @@ const {
     getRecipeById,
     updateRecipe,
     deleteRecipe,
-    getRecipeByExactName
+    getRecipeByExactName,
+    getRecipesByIngredients 
 } = require('../controllers/recipeControllers');
 
 // IMPORTANT: This public route must be defined before the '/:id' route
 // so that Express doesn't mistake "public" for an ID.
 router.get('/public', getAllPublicRecipes);
+
+
+router.get('/filter', getRecipesByIngredients);
 
 router.get('/by-name', getRecipeByExactName);
 

@@ -1,6 +1,25 @@
 const Recipe = require('../models/recipe');
 const jwt = require('jsonwebtoken');
 
+/**
+ * Converts a plural word to its singular form for common cases.
+ * @param {string} word - The word to singularize.
+ * @returns {string} The singular form of the word.
+ */
+const getSingular = (word) => {
+  const lowerWord = word.toLowerCase();
+  // If the word ends in 'ies', change it to 'y' (e.g., blueberries -> blueberry)
+  if (lowerWord.endsWith('ies')) {
+    return word.slice(0, -3) + 'y';
+  }
+  // If the word ends in 's' (but not 'ss'), remove the 's'
+  if (lowerWord.endsWith('s') && !lowerWord.endsWith('ss')) {
+    return word.slice(0, -1);
+  }
+  // Otherwise, return the original word
+  return word;
+};
+
 // @desc    Get all public recipes
 const getAllPublicRecipes = async (req, res) => {
     try {
@@ -89,12 +108,12 @@ const deleteRecipe = async (req, res) => {
     }
 };
 
+// @desc    Get a single recipe by its exact name
 const getRecipeByExactName = async (req, res) => {
   try {
     const name = (req.query.name || '').trim();
     if (!name) return res.status(400).json({ error: 'name is required' });
 
-    // Exact match on recipe_name, case-insensitive via collation
     const recipe = await Recipe.findOne({ recipe_name: name })
       .collation({ locale: 'en', strength: 2 })
       .populate('user', 'name')
@@ -108,6 +127,39 @@ const getRecipeByExactName = async (req, res) => {
   }
 };
 
+// @desc    Get recipes filtered by ingredients
+const getRecipesByIngredients = async (req, res) => {
+    try {
+        const { with: withIngredients, without: withoutIngredients } = req.query;
+        
+        const queryConditions = [];
+
+        if (withIngredients) {
+            const ingredientsArray = withIngredients.split(',').map(item => item.trim()).filter(item => item);
+            if (ingredientsArray.length > 0) {
+              queryConditions.push({ ingredients: { '$all': ingredientsArray.map(ing => new RegExp(getSingular(ing), 'i')) } });
+            }
+        }
+
+        if (withoutIngredients) {
+            const ingredientsArray = withoutIngredients.split(',').map(item => item.trim()).filter(item => item);
+            if (ingredientsArray.length > 0) {
+              queryConditions.push({ ingredients: { '$nin': ingredientsArray.map(ing => new RegExp(getSingular(ing), 'i')) } });
+            }
+        }
+        
+        const query = queryConditions.length > 0 ? { '$and': queryConditions } : {};
+
+        const recipes = await Recipe.find(query).sort({ createdAt: -1 }).populate('user', 'name');
+        
+        res.status(200).json(recipes);
+
+    } catch (error) {
+        console.error('getRecipesByIngredients error:', error);
+        res.status(500).json({ error: 'Server error while filtering recipes' });
+    }
+};
+
 module.exports = {
     getAllPublicRecipes,
     createRecipe,
@@ -115,5 +167,6 @@ module.exports = {
     getRecipeById,
     updateRecipe,
     deleteRecipe, 
-    getRecipeByExactName
+    getRecipeByExactName,
+    getRecipesByIngredients
 };

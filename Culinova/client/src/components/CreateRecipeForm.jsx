@@ -4,19 +4,19 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import recipeService from '../services/recipeService'; // Import the service
+import recipeService from '../services/recipeService';
+import './UpdateRecipeForm.css'; // Use the same button styles
 
-export default function CreateRecipeForm({ onRecipeCreated }) {
-    // 1. The state now matches your backend schema (e.g., recipe_name)
+export default function CreateRecipeForm({ onRecipeCreated, onCancel }) {
     const [formData, setFormData] = useState({
-        recipe_name: "", 
-        description: "", 
-        ingredients: "", 
-        directions: "", 
+        recipe_name: "",
+        description: "",
+        ingredients: "",
+        directions: "",
         photo_url: "",
-        prep_time: "", 
-        cook_time: "", 
-        total_time: "", 
+        prep_time: "",
+        cook_time: "",
+        total_time: "",
         nutrition: "",
         dietary_filters: { vegan: false, vegetarian: false, gluten_free: false, dairy_free: false, nut_free: false, halal: false, kosher: false, drinks: false }
     });
@@ -30,16 +30,14 @@ export default function CreateRecipeForm({ onRecipeCreated }) {
         }
     };
 
-    // 2. This function now sends the data to the backend
     const handleSubmit = async (e) => {
         e.preventDefault();
         const submissionData = { ...formData, ingredients: formData.ingredients.split(',').map(item => item.trim()) };
         try {
             const newRecipe = await recipeService.createRecipe(submissionData);
-            // Tell the parent component that a new recipe was created to update the UI
             onRecipeCreated(newRecipe);
         } catch (error) {
-            toast.error('Failed to create recipe. Please check the fields and try again.');
+            toast.error('Failed to create recipe.');
             console.error(error);
         }
     };
@@ -47,7 +45,6 @@ export default function CreateRecipeForm({ onRecipeCreated }) {
     return (
         <Form onSubmit={handleSubmit} className="p-4 bg-light rounded-3">
             <h4 className="mb-4">Add a New Recipe</h4>
-            {/* 3. The 'name' attributes of the form fields now match the state */}
             <Row className="mb-3">
                 <Form.Group as={Col} sm={8}>
                     <Form.Label>Recipe Name</Form.Label>
@@ -92,11 +89,14 @@ export default function CreateRecipeForm({ onRecipeCreated }) {
                 <Form.Label>Dietary Filters</Form.Label>
                 <div className="d-flex flex-wrap">
                     {Object.keys(formData.dietary_filters).map(f => (
-                        <Form.Check key={f} type="checkbox" label={f.replace(/_/g,' ')} name={f} checked={formData.dietary_filters[f]} onChange={handleChange} className="me-3 text-capitalize"/>
+                        <Form.Check key={f} type="checkbox" label={f.replace(/_/g, ' ')} name={f} checked={formData.dietary_filters[f]} onChange={handleChange} className="me-3 text-capitalize"/>
                     ))}
                 </div>
             </Form.Group>
-            <Button variant="primary" type="submit" className="save-btn">Submit Recipe</Button>
+            <div className="mt-4">
+                <Button variant="primary" type="submit" className="me-2 save-btn">Submit Recipe</Button>
+                <Button variant="secondary" onClick={onCancel} className="cancel-btn">Cancel</Button>
+            </div>
         </Form>
     );
 }

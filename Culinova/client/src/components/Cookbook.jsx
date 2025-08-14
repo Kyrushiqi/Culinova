@@ -100,7 +100,9 @@ export default function Cookbook() {
         switch (activeTab) {
             case 'my-recipes':
                 return isCreating ? (
-                    <CreateRecipeForm onRecipeCreated={handleRecipeCreated} />
+                    <CreateRecipeForm onRecipeCreated={handleRecipeCreated} 
+                    onCancel={() => setIsCreating(false)} 
+                    />
                 ) : (
                     <>
                         <div className="text-end mb-3">

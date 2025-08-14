@@ -90,11 +90,11 @@ export default function CreateRecipeForm({ onRecipeCreated, onCancel }) {
             <Row className="mb-3">
                 <Form.Group as={Col}>
                     <Form.Label>Prep Time (mins)</Form.Label>
-                    <Form.Control type="number" name="prep_time" value={formData.prep_time} onChange={handleChange} min="0" />
+                    <Form.Control type="number" name="prep_time" value={formData.prep_time} onChange={handleChange} min="0" required />
                 </Form.Group>
                 <Form.Group as={Col}>
                     <Form.Label>Cook Time (mins)</Form.Label>
-                    <Form.Control type="number" name="cook_time" value={formData.cook_time} onChange={handleChange} min="0" />
+                    <Form.Control type="number" name="cook_time" value={formData.cook_time} onChange={handleChange} min="0" required />
                 </Form.Group>
                 <Form.Group as={Col}>
                     <Form.Label>Total Time</Form.Label>

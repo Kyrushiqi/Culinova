@@ -4,17 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import ListGroup from 'react-bootstrap/ListGroup';
 import UpdateRecipeForm from './UpdateRecipeForm';
-import './recipeDetail.css';
 
-// ✅ Add the helper function here
-const formatTime = (totalMinutes) => {
-    if (!totalMinutes || totalMinutes <= 0) return '0 mins';
-    const hours = Math.floor(totalMinutes / 60);
-    const minutes = totalMinutes % 60;
-    const hoursText = hours > 0 ? `${hours} hour${hours > 1 ? 's' : ''}` : '';
-    const minutesText = minutes > 0 ? `${minutes} min${minutes > 1 ? 's' : ''}` : '';
-    return [hoursText, minutesText].filter(Boolean).join(' ');
-};
+import './recipeDetail.css';
 
 export default function RecipeDetail({ recipe, onBack, onRecipeDeleted, onRecipeUpdated }) {
     const { user } = useContext(UserContext);
@@ -32,16 +23,19 @@ export default function RecipeDetail({ recipe, onBack, onRecipeDeleted, onRecipe
         setIsEditing(false);
     };
 
+    // If the user clicks "Edit", render the update form instead of the details
     if (isEditing) {
         return <UpdateRecipeForm recipe={recipe} onUpdateSuccess={handleUpdateSuccess} onCancel={() => setIsEditing(false)} />;
     }
 
+    // Otherwise, render the recipe details
     return (
         <div className="p-md-4 p-2">
             <Button variant="outline-secondary" onClick={onBack} className="mb-4 back-btn">
                 &larr; Back
             </Button>
             
+            {/* Only show Edit/Delete buttons if the logged-in user is the owner */}
             {isOwner && (
                 <div className="float-end">
                     <Button variant="secondary" className="me-2 edit-btn" onClick={() => setIsEditing(true)}>Edit</Button>
@@ -53,11 +47,10 @@ export default function RecipeDetail({ recipe, onBack, onRecipeDeleted, onRecipe
 
             <p className="lead">{recipe.description}</p>
             
-            {/* ✅ UPDATED TIME DISPLAY SECTION */}
             <div className="d-flex flex-wrap justify-content-around text-center my-4">
                 {recipe.prep_time && <div className="p-2"><b>Prep:</b> {recipe.prep_time} mins</div>}
                 {recipe.cook_time && <div className="p-2"><b>Cook:</b> {recipe.cook_time} mins</div>}
-                {recipe.total_time && <div className="p-2"><b>Total:</b> {formatTime(recipe.total_time)}</div>}
+                {recipe.total_time && <div className="p-2"><b>Total:</b> {recipe.total_time} mins</div>}
                 {recipe.user && <div className="p-2"><b>By:</b> {recipe.user.name}</div>}
             </div>
 

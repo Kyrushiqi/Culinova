@@ -19,7 +19,7 @@ const createRecipe = async (req, res) => {
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         let recipe = await Recipe.create({ ...req.body, user: decoded.id });
-        recipe = await recipe.populate('user', 'name _id');
+        recipe = await recipe.populate('user', 'name');
         res.status(201).json(recipe);
     } catch (error) {
         res.status(500).json({ error: 'Server error while creating recipe' });

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"; // Import useEffect
+import { useState, useEffect } from "react";
 import toast from 'react-hot-toast';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -52,7 +52,21 @@ export default function UpdateRecipeForm({ recipe, onUpdateSuccess, onCancel }) 
     return (
         <Form onSubmit={handleSubmit} className="p-4 bg-light rounded-3">
             <h4 className="mb-4">Editing: {recipe.recipe_name}</h4>
-            {/* ... other form fields (name, photo, description, etc.) ... */}
+            
+            <Row className="mb-3">
+                <Form.Group as={Col} sm={8}>
+                    <Form.Label>Recipe Name</Form.Label>
+                    <Form.Control type="text" name="recipe_name" value={formData.recipe_name} onChange={handleChange} required />
+                </Form.Group>
+                <Form.Group as={Col} sm={4}>
+                    <Form.Label>Photo URL</Form.Label>
+                    <Form.Control type="text" name="photo_url" value={formData.photo_url} onChange={handleChange} />
+                </Form.Group>
+            </Row>
+            <Form.Group className="mb-3">
+                <Form.Label>Description</Form.Label>
+                <Form.Control as="textarea" rows={2} name="description" value={formData.description} onChange={handleChange} />
+            </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label>Ingredients (comma-separated)</Form.Label>
                 <Form.Control as="textarea" rows={3} name="ingredients" value={formData.ingredients} onChange={handleChange} required />
@@ -73,14 +87,24 @@ export default function UpdateRecipeForm({ recipe, onUpdateSuccess, onCancel }) 
                 </Form.Group>
                 <Form.Group as={Col}>
                     <Form.Label>Total Time</Form.Label>
-                    {/* Display calculated time instead of an input field */}
                     <p className="form-control-plaintext ps-2">
                         <strong>{formatTime(formData.total_time)}</strong>
                     </p>
                 </Form.Group>
             </Row>
-            
-            {/* ... other form fields (nutrition, dietary filters) ... */}
+
+            <Form.Group className="mb-3">
+                <Form.Label>Nutrition Facts</Form.Label>
+                <Form.Control type="text" name="nutrition" value={formData.nutrition} onChange={handleChange} />
+            </Form.Group>
+            <Form.Group className="mb-4">
+                <Form.Label>Dietary Filters</Form.Label>
+                <div className="d-flex flex-wrap">
+                    {Object.keys(formData.dietary_filters).map(f => (
+                        <Form.Check key={f} type="checkbox" label={f.replace(/_/g,' ')} name={f} checked={formData.dietary_filters[f]} onChange={handleChange} className="me-3 text-capitalize"/>
+                    ))}
+                </div>
+            </Form.Group>
             <div className="mt-4">
                 <Button variant="primary" type="submit" className="me-2 save-btn">Save Changes</Button>
                 <Button variant="secondary" onClick={onCancel} className="cancel-btn">Cancel</Button>
